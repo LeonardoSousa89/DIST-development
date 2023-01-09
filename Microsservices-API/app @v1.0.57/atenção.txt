@@ -1,0 +1,4 @@
+iria utilizar as entidades separadas (User & Worker) mas aprender a resolver esse
+problema, demandará tempo e nesta fase I, o prazo é curto, então 
+deixarei este microsserviço como monolito e na arquitetura será: User/Worker.
+Eu os separarei como microsserviços independentes em features futuras.

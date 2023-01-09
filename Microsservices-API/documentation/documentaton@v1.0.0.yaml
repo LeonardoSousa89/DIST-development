@@ -1,0 +1,290 @@
+# https://swagger.io/specification/v2/
+swagger: '2.0'
+info:
+  description: API to management logistics service
+  version: '2.0'
+  title: DIST 
+  contact:
+    email: distproject89@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /dist/worker/{userId}/administration:
+    get:
+      description: list of workers
+      summary: List of workers and pagination resources
+      parameters:
+      - name: size
+        in: query
+        description: volume of data in page
+        required: false
+        type: number
+      - name: page
+        in: query
+        description: pagination controller
+        required: false
+        type: number
+      - name: userId
+        in: path
+        description: id of user
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK.
+          schema:
+            $ref: '#/definitions/worker'
+        404:
+          description: Resource not found
+  /dist/worker/administration:
+    post:
+      description: parameters to insert a worker 
+      summary: Insert worker 
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: '#/definitions/insert'
+      responses:
+        201:
+          description: Worker created
+        400:
+          description: Was an error, verify if some field is empty or perhaps your email already exists
+  /dist/worker/user-account/administration:
+    post:
+      description: parameters to create account
+      summary: Create Account 
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: '#/definitions/account-insert'
+      responses:
+        201:
+          description: Account successfully created
+        400:
+          description: Was an error, verify if some field is empty or perhaps your email already exists
+  /dist/worker/user-account/{userId}/administration:
+    get:
+      description: user account information
+      summary: User Account 
+      parameters:
+      - name: userId
+        in: path
+        description: id of user
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK.
+          schema:
+            $ref: '#/definitions/account-get'
+        404:
+          description: Resource not found
+definitions:
+  worker:
+    type: object
+    properties:
+      content:
+        type: array
+        items:
+          $ref: '#/definitions/resources'
+  resources:
+      type: object
+      required:
+        - object1
+        - object2
+        - object3
+      properties:
+        object1:
+          type: object
+          required:
+            - workerId
+            - workerName
+            - workerEmail
+            - workerPost
+            - workerAddress
+            - workerPhoneNumber
+            - workerAge
+          properties:
+            workerId:
+              type: number
+              example: 1
+              format: number
+            workerName:
+              type: string
+              example: Alfred Penworth
+              format: string
+            workerEmail:
+              type: string
+              example: wayneenterprise@yahoo.com
+              format: string
+            workerPost:
+              type: string
+              example: Butler
+              format: string
+            workerAddress:
+              type: string
+              example: mansion Wayne, Gotham city
+              format: string
+            workerPhoneNumber:
+              type: string
+              example: (415) 555-2671
+              format: string
+            workerAge:
+              type: string
+              example: 60
+              format: string
+        object2:
+          type: object
+          required:
+            - workerId
+            - workerName
+            - workerEmail
+            - workerPost
+            - workerAddress
+            - workerPhoneNumber
+            - workerAge   
+          properties:
+            workerId:
+              type: number
+              example: 2
+              format: number 
+            workerName:
+              type: string
+              example: Lana Lang
+              format: string
+            workerEmail:
+              type: string
+              example: lanacoofe@gmail.com
+              format: string
+            workerPost:
+              type: string
+              example: Butler
+              format: string
+            workerAddress:
+              type: string
+              example: Smallville
+              format: string
+            workerPhoneNumber:
+              type: string
+              example: (415) 555-7548
+              format: string
+            workerAge:
+              type: string
+              example: 24
+              format: string
+        object3:
+          type: object
+          required:
+            - workerId
+            - workerName
+            - workerEmail
+            - workerPost
+            - workerAddress
+            - workerPhoneNumber
+            - workerAge
+          properties:
+            workerId:
+              type: number
+              example: 3
+              format: number
+            workerName:
+              type: string
+              example: Claire Bennet
+              format: string
+            workerEmail:
+              type: string
+              example: heroessn32009@gmail.com
+              format: string
+            workerPost:
+              type: string
+              example: Shopkeeper
+              format: string
+            workerAddress:
+              type: string
+              example: Odessa, Texas
+              format: string
+            workerPhoneNumber:
+              type: string
+              example: (415) 555-4458
+              format: string
+            workerAge:
+              type: string
+              example: 21
+              format: string
+  insert:
+    type: object
+    required:
+      - workerName
+      - workerEmail
+      - workerPost
+      - workerAddress
+      - workerPhoneNumber
+      - workerAge
+    properties:
+      workerName:
+        type: string
+        example: Alfred Penworth
+        format: string
+      workerEmail:
+        type: string
+        example: wayneenterprise@yahoo.com
+        format: string
+      workerPost:
+        type: string
+        example: Butler
+        format: string
+      workerAddress:
+        type: string
+        example: mansion Wayne, Gotham city
+        format: string
+      workerPhoneNumber:
+        type: string
+        example: (415) 555-2671
+        format: string
+      workerAge:
+        type: string
+        example: 60
+        format: string
+      admin:
+        type: object
+        example: { userId: v9Cky6EdNcT8rOqYl65XVvI2cZK2 }
+        format: object
+  account-insert:
+    type: object
+    required:
+      - userId
+      - userName
+      - email
+    properties:
+      userId:
+        type: string
+        example: v9Cky6EdNcT8rOqYl65XVvI2cZK2
+        format: string
+      userName:
+        type: string
+        example: Thomas Wayne
+        format: string
+      email:
+        type: string
+        example: thomas@gmail.com
+        format: string
+  account-get:
+    type: object
+    required:
+      - userName
+      - email
+    properties:
+      userName:
+        type: string
+        example: Thomas Wayne
+        format: string
+      email:
+        type: string
+        example: thomas@gmail.com
+        format: string
+      

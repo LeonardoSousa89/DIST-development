@@ -1,0 +1,2 @@
+URL_firebase-doc_faceboo-dev=https://firebase.google.com/docs/auth/web/facebook-login?hl=pt-br#:~:text=Ative%20o%20login%20do%20Facebook,do%20app%20recebidos%20do%20Facebook.
+URL_faceboo-dev=https://developers.facebook.com/

@@ -1,0 +1,59 @@
+/* está gerando um bug de layout independente do 
+elemento (div, span, Grid e etc...) 
+provavelmente está havendo conflito
+entre o css e do projeto e o css do
+material ui, na próxima versão, estilizar com 
+o grid do material ui.
+*/
+.form-container{
+    background-color: whitesmoke;
+    height: 57vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+.size{
+    width: 30%;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 10px;
+
+    height: 50px;
+
+    /* uso em layout */
+    /* background-color: brown; */
+}
+.text p{
+    font-weight: bold;
+}
+.text strong{
+    font-size: large;
+}
+.socialLogin{
+    /* uso em layout */
+    /* background-color: brown; */
+    width: 120px;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 20px;
+}
+.facebook, .google{
+    cursor: pointer;
+}
+.play-store{
+    /* uso em layout */
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+}

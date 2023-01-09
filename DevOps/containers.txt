@@ -1,0 +1,8 @@
+docker network create distnetwork
+docker network ls
+
+docker pull postgres:12-alpine
+
+docker run postgres:12-alpine -p 5432:5432 --name distprojectdb1 --network distnetwork -e POSTGRES_PASSWORD=1234
+docker run postgres:12-alpine -p 5432:5432 --name distprojectdb2 --network distnetwork -e POSTGRES_PASSWORD=123456
+docker run postgres:12-alpine -p 5432:5432 --name distprojectdb3 --network distnetwork -e POSTGRES_HOST_AUTH_METHOD=trust

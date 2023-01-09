@@ -1,0 +1,9 @@
+organize all imports in application tests project interface and configure all comunication links, 
+separate the html unified with js and css in new files, test send user data to spring cloud app, 
+convert the user id string in number if need
+
+inserir no swagger doc: /dist/worker/user-account/administration 
+						erro: 400
+						msg: Was an error, verify if some field is empty or perhaps your email already exists
+						success: 200
+						msg: Account successfully created	

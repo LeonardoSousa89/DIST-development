@@ -1,0 +1,33 @@
+   há uma circunstancia curiosa
+   elementos do componente login são estilizados,
+   mesmo sem serem chamados em seu próprio index.css ou App.css,
+   como ex: .store
+   está recebendo as mudanças atribuídas ao elemento do componente signUp e
+   não com estilo direcionado ao componente login.
+
+   resposta do membro do gp desenvolvimento web:
+   "Alguma configuração global está afetando todos, algo como body{} ou # root{}"
+
+achei o erro, estou usando o .store no App.css e não me atentei, configurei-o nod  index.css do 
+componente signUp, corrigir inserindo todos os códigos no App.css
+   
+
+
+Para evitar desgastes na estilização css formulários e outros elementos que devem conter um mesmo width,
+ou equivalente serão cuidados em um container: div, span , etc...
+Todos os elementos receberão width: 100% ou 100vh e o que alterará em responsividade será o container,
+não os elementos, reduz o tempo de trabalho e o desgaste de ter que estilizar item por item, valor por valor.
+
+
+
+O layout está mal feito, mal distribuido, terei que refazer tudo novamente:
+
+header - main - footer - workerContainer e etc ....
+
+a responsividade está uma gambiarra que só, todo o css está mal feito, refaça tudo após o lançamento, os containers[css: header, footer e etc...],
+devem estar distribuidos corretamente para facilitar a responsividade e a gestão de estilo deve estar corretamente centralizada,
+o App.css deve controlar tudo que for do escopo global[somente] e o index.css[interno] deve controlar tudo que seja do escopo seu escopo,
+verifique os códigos .css anteriores e construa uma base mais legível, está horrível.
+
+Obs* o footer, main e header ou outros componentes universais e especifícos, devem ser chamados e estilizados,
+pelo componente inteno EX: login.jsx, user.jsx e não estilizar estes pelo App.css

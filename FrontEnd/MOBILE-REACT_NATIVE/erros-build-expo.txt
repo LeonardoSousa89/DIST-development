@@ -1,0 +1,172 @@
+**nem as notas de aviso nem os warnings
+de fato prejudicam o build da aplicação, 
+estes erros serão registrados para futuras pesquisas
+
+comandos para gerar o artefato de build
+
+	expo login -u YOUR-USERNAME-OR-EMAIL -p YOUR-PASSWORD
+	expo whoami
+	eas build -p android
+
+notas de avisos:
+
+1)
+[stderr] Note: 
+/home/expo/workingdir/build/mobile-APP/app/node_modules/react-native-gradle-plugin/src/main/java/com/facebook/react/codegen/generator/SchemaJsonParser.java 
+uses or overrides a deprecated API.
+
+resposta: https://stackoverflow.com/questions/31762417/java-uses-or-overrides-a-deprecated-api-error
+
+2)
+[stderr] Note: Recompile with -Xlint:deprecation for details.
+
+resposta: https://stackoverflow.com/questions/29529678/java-recompile-with-xlintunchecked-for-details
+
+
+
+
+warning:
+
+3)
+[stderr] warn Package @react-native-community/google-signin contains invalid configuration: "dependency.platforms.ios.project" is not allowed.
+ Please verify it's properly linked using "react-native config" command and contact the package maintainers about this.
+
+
+
+
+
+notas de avisos:
+4)
+[stderr] Note:
+ /home/expo/workingdir/build/mobile-APP/app/node_modules/@react-native-community/google-signin/android/src/main/java/co/apptailor/googlesignin/RNGoogleSigninModule.java 
+uses or overrides a deprecated API.
+
+5)
+[stderr] Note: Recompile with -Xlint:deprecation for details.
+
+6)
+[stderr] Note: 
+/home/expo/workingdir/build/mobile-APP/app/node_modules/@react-native-community/google-signin/android/src/main/java/co/apptailor/googlesignin/RNGoogleSigninModule.java 
+uses unchecked or unsafe operations.
+
+7)
+[stderr] Note: Recompile with -Xlint:unchecked for details.
+
+
+8)
+[stderr] Note: Some input files use or override a deprecated API.
+
+9)
+[stderr] Note: Recompile with -Xlint:deprecation for details.
+
+10)
+[stderr] Note: Some input files use unchecked or unsafe operations.
+
+11)
+[stderr] Note: Recompile with -Xlint:unchecked for details.
+
+
+
+
+erros:
+
+12)
+[stderr] e: 
+/home/expo/workingdir/build/mobile-APP/app/node_modules/expo-crypto/android/src/main/java/expo/modules/crypto/DigestAlgorithm.kt: (3, 34): 
+Unresolved reference: Enumerable
+
+resposta: [https://github.com/expo/expo/issues/20000, https://github.com/expo/expo-cli/issues/4524]
+
+13)
+[stderr] e: 
+/home/expo/workingdir/build/mobile-APP/app/node_modules/expo-crypto/android/src/main/java/expo/modules/crypto/DigestAlgorithm.kt: (5, 49): 
+Unresolved reference: Enumerable
+
+resposta: [https://github.com/expo/expo/issues/20000, https://github.com/expo/expo-cli/issues/4524]
+
+14)
+[stderr] e: 
+/home/expo/workingdir/build/mobile-APP/app/node_modules/expo-crypto/android/src/main/java/expo/modules/crypto/DigestOptions.kt: (5, 34): 
+Unresolved reference: Enumerable
+
+resposta: [https://github.com/expo/expo/issues/20000, https://github.com/expo/expo-cli/issues/4524]
+
+15)
+[stderr] e: /home/expo/workingdir/build/mobile-APP/app/node_modules/expo-crypto/android/src/main/java/expo/modules/crypto/DigestOptions.kt: (11, 44): 
+Unresolved reference: Enumerable
+
+resposta: [https://github.com/expo/expo/issues/20000, https://github.com/expo/expo-cli/issues/4524]
+
+16) *erros relacionados entre si 
+[stderr] FAILURE: Build failed with an exception.
+[stderr] * What went wrong:
+[stderr] Execution failed for task ':expo-crypto:compileReleaseKotlin'.
+[stderr] > A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+[stderr]    > Compilation error. See log for more details
+[stderr] * Try:
+[stderr] > Run with --stacktrace option to get the stack trace.
+[stderr] > Run with --info or --debug option to get more log output.
+[stderr] > Run with --scan to get full insights.
+[stderr] * Get more help at https://help.gradle.org
+[stderr] BUILD FAILED in 3m 54s
+
+
+
+
+17) *erro na instalação de apk
+INSTALL_FAILED_INVALID_APK: Split config.arm64_v8a was defined multiple times
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

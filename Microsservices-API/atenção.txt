@@ -1,0 +1,10 @@
+O modelo correto de associação @ManyToOne é o utilizado nos testes de registros de mutantes,
+todas as associações neste projeto até o momento: 
+
+Data atual: 01/11/2022
+Hora atual: 22:39:28
+
+estão errados.
+
+referência:
+	curso java completo, aulas 295 - 312

@@ -1,0 +1,24 @@
+				
+https://pt.scribd.com/personalize?slideshare=true#step-0 || https://pt.slideshare.net/ (cancelar o pagamento antes de 20/11)
+
+							tratamentos de erros
+
+https://www.youtube.com/watch?v=jN1kY-cRbEI  - aula 1 firebase
+https://www.youtube.com/watch?v=JzlpjKWTt6Y  - aula 2 firebase
+https://www.youtube.com/watch?v=ngCK8pd7jOA  - aula 3 firebase
+
+https://www.youtube.com/watch?v=SdBtC-rXUck  - aula 1 spring-boot
+https://www.youtube.com/watch?v=dPKzQnKKoMQ  - aula 2 spring-boot
+https://www.youtube.com/watch?v=cjsJydOLhCo  - aula 3 spring-boot
+https://www.youtube.com/watch?v=Oiem7WETQsI  - aula 4 spring-boot
+
+
+
+						API para calculo de frete e prazo de entrega
+
+https://www.youtube.com/watch?v=PM75qXGmvyc
+
+						
+						API de pagamento node.js
+https://www.youtube.com/watch?v=bo1THXaohU0
+https://www.youtube.com/watch?v=zOJt1MHtV0o&list=PLbj7Uy2ll935mYlIv482QfrxZiMmEpAST

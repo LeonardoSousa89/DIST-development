@@ -1,0 +1,24 @@
+[
+	{
+        "workerName": "Mathew Michael Murdock",
+        "workerEmail": "murdocks@gmail.com",
+        "workerPost": "lawyer",
+        "workerAddress": "Hells's Kitchen, New York'",
+        "workerPhoneNumber": "(415) 555-2788",
+        "workerAge": "35"
+    },{
+        "workerName": "Claire Radfield",
+        "workerEmail": "racoon96@gmail.com",
+        "workerPost": "Ambientalist",
+        "workerAddress": "Racoon city",
+        "workerPhoneNumber": "(415) 555-4458",
+        "workerAge": "29"
+    },{
+        "workerName": "Lana Lang",
+        "workerEmail": "lanacoofe@gmail.com",
+        "workerPost": "seller",
+        "workerAddress": "Smallville",
+        "workerPhoneNumber": "(415) 555-7548",
+        "workerAge": "24"
+    }
+]

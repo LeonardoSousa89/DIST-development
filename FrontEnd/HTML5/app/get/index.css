@@ -1,0 +1,50 @@
+*{
+    margin: 1vh;
+}
+body{
+    background-color: black;
+    color: whitesmoke;
+    
+    text-align: center;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button, input{
+    padding: 1vh;
+    overflow: hidden;
+    outline: none;
+}
+button{
+    cursor: pointer;
+    width: 10vh;
+}
+#reload{
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    margin-top: 10vh;
+}
+.queryContainer{
+    margin-bottom: 5vh;
+}
+#containerWorker div, #containerUser div{
+    background-color: whitesmoke;
+    color: cornflowerblue;
+    padding: 1vh;
+    width: 40vh;
+}
+#containerWorker{
+    display: flex;
+
+    max-height: 500px;
+    width: 40%;
+    overflow-x: scroll;
+}
+hr{
+    width: 100%;
+}

@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+
+
+
+.internalHeader{
+    height: 30vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.logoContainer{
+    flex: 2;
+    /* background-color: red; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logoIcon{
+    height: 90px;
+    width: 90px;
+    margin-right: 25px;
+}
+.logoText{
+    height: 100px;
+}
+
+
+
+
+.profileContainer{
+    flex: 1;
+    /* background-color: brown; */
+
+    display: flex;
+}
+.profilePhotoContainer{
+    background-color: #2976E61A;
+    padding: 5px;
+    flex: 1;
+}
+.clientPhoto{
+    height: 80px;
+    width:  90px;
+    
+    top: 142px;
+    position: absolute;
+    
+    margin-left: 5px;
+
+    border-radius:100%;
+}
+
+
+
+
+.profileInfoContainer{
+    background-color: #2976E61A;
+    padding: 5px;
+    flex: 2;
+}
+.profileContainer h1{
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+.profileContainer h1, .profileContainer h3{
+    font-family: 'Inter', sans-serif;
+}
+
+
+
+
+.cardContaner{
+    height: 60vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.cardElements{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cardWorker{
+    margin-bottom: 20px;
+}
+.listWorker, .cardWorker{
+    cursor: pointer;
+}
+.logout{
+    width: 80%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
+.formInsertWorker{
+    height: 100%;
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: whitesmoke;
+}
+
+
+
+
+.formInsertWorker .size{
+    width: 50%;
+}
+.arrow{
+   width: 50%;
+   margin-top: 20px;
+}
+.arrow img{
+    cursor: pointer;
+}

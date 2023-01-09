@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*{
+  margin: 0;
+}
+body{
+  width: 100vw;
+  height: 100vh;
+
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+
+/* component header */
+.Header{
+  background-color: whitesmoke;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.container-logo{
+  /* uso em layout */
+  /* background-color: red; */
+  flex: 1;
+}
+.logo{
+  margin-left: 122px;
+  margin-top: 34px;
+}
+.container-dist{
+  /* uso em layout */
+  /* background-color: pink; */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items:center ;
+}
+.logo-dist{
+  margin-top: 15px;
+}
+.sub-container-logo{
+  /* uso em layout */
+  /* background-color: goldenrod; */
+  flex: 1;    
+  overflow: hidden;
+}
+.internal-sub-container-logo{
+  /* uso em layout */
+  /* background-color: gold; */
+  height: 100%;
+  width: 303px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.social{
+  /* uso em layout */
+  /* background-color: red; */
+  overflow: hidden;
+  
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.in, .git{
+  margin-top: 46px;
+  margin-bottom: 1px;
+  cursor: pointer;
+}
+.git{
+  margin-right: 10px;
+}
+.text-logo-container{
+  /* uso em layout */
+  /* background-color: brown; */
+  overflow: hidden;
+
+  flex-grow: 50;   
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;  
+}
+.text-logo{
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+
+
+
+/* component Login */
+.signUp,.Login{
+   /* uso em layout */
+  /* background-color: black; */
+  height: 90vh;
+}
+
+
+
+
+/* component footer */
+.Footer{
+  background-image: url('./assets/Rectangle.png');
+  height: 10vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Ccopy{
+  margin-right: 5px;
+}
+
+
+
+
+/* responsivity components signUp and login */
+
+/* devices between 769x1339 orientation:landscape*/
+@media (max-width:1339px){
+  @media(min-width:769px){
+    @media(orientation:landscape){
+      .signUp{
+        display: flex;
+        flex-direction: column;
+      } 
+    
+      .container-logo{
+        display: flex;
+        justify-content: center;
+      }
+      
+      .logo{
+        margin-left: 0;
+      }
+    
+      .social{
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .text-logo-container{
+        justify-content: center;  
+      }
+   }
+  }
+}
+
+/* devices between 769x1339 orientation:portrait*/
+@media (max-device-width:769px){
+  @media(orientation:portrait){
+    .Header{
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .container-logo{
+      display: flex;
+      justify-content: center;
+    }
+    
+    .logo{
+      margin-left: 0;
+      margin-bottom: 4vh;
+    }
+  
+    .social{
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 5vh;
+    }
+  
+    .text-logo-container{
+      justify-content: center;  
+    }
+    .internal-sub-container-logo{
+      width: 100%;
+    }
+    .google-playstore{
+      margin-top: -8vh;
+      margin-left: -4vh;
+      position: absolute;
+    }
+  }
+}
