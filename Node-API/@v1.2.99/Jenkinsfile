@@ -5,7 +5,7 @@
             stage('Build Image') {
                 steps {
                    script {
-                        dockerapp = docker.build("leozin89/dist-api-node:v1")
+                        dockerapp = docker.build("leozin89/dist-api-node:${env.BUILD_ID}")
                 }
             }
         }
