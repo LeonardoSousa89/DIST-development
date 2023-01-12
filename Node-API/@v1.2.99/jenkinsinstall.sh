@@ -1,6 +1,6 @@
 #first install openJdk
 sudo apt update && sudo apt install default-jre &&
-sudo apt install default-jdk
+sudo apt install default-jdk && clear
 
 #install jenkins
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - &&
@@ -17,7 +17,7 @@ sudo systemctl start jenkins
 sudo systemctl restart jenkins
 
 #if use docker got the permissions
-sudo udermod -aG docker jenkins
+sudo usermod -aG docker jenkins
 
 #get the jenkins password
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
