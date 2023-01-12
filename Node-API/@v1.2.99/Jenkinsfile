@@ -12,7 +12,7 @@
             }
         }
 
-        //dockerhub** reference a credentials ENV saved in manager credentials in jenkins
+        //dockerhub** reference a credentials saved in manager credentials in jenkins
         stage('push Image') {
             steps {
                 script {
