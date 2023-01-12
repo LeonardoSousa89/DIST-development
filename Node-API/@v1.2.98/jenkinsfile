@@ -1,0 +1,12 @@
+ pipeline {
+    agent: any {
+
+        stages {
+            stage('Initial') {
+                steps {
+                    echo 'pipeline begin'
+                }
+            }
+        }
+    }
+ }
