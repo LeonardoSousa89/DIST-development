@@ -12,11 +12,11 @@
             }
         }
 
-        //dockerhub** reference a credentials saved in manager credentials in jenkins
+        //DOCKERHUB** reference a credentials saved in manager credentials in jenkins
         stage('push Image') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'){
+                    docker.withRegistry('https://registry.hub.docker.com', 'DOCKERHUB'){
                         dockerapp.push("latest")
                         dockerapp.push("${env.BUILD_ID}")
                      }
@@ -26,7 +26,7 @@
 
         stage('Deploy Container Image on Server') {
             steps {
-                   sh 'docker run -d -p 8766:8766 --name app -e PROD_CLIENT=your_prod_client_db -e PROD_HOST=your_prod_host_db -e PROD_DB=your_prod_db -e PROD_USER_DB=your_prod_user_db -e PROD_PASSWORD_DB=your_prod_password_db leozin89/dist-node-api:latest'
+                   sh 'docker run -d -p 8766:8766 --memory 256M --cpus=0.2 --name app -e PROD_CLIENT=your_prod_client_db -e PROD_HOST=your_prod_host_db -e PROD_DB=your_prod_db -e PROD_USER_DB=your_prod_user_db -e PROD_PASSWORD_DB=your_prod_password_db leozin89/dist-node-api:latest'
             }
         }
 
