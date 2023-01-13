@@ -22,6 +22,9 @@ sudo usermod -aG docker jenkins
 #get the jenkins password
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
+#if you need work with ssh integrated a private repository on github or other use it
+ssh-keygen -t rsa -b 4096
+
 #plugins
 
     #docker:

@@ -3,7 +3,7 @@
 
     //read the doc: https://www.jenkins.io/doc/book/pipeline/docker/
     stages {
-     
+        
         stage('Build Image') {
             steps {
                 script {
@@ -32,6 +32,5 @@
 
         
     }
-
 }
  
