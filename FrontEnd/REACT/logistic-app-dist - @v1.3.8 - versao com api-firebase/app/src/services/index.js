@@ -346,9 +346,7 @@ export async function getWorkersData(setData, page){
     const getWorkersById=query(collection(db, "Workers"), where("userid", "==", userId));
 
     //falta paginar todas as chamadas
-    const querySnapshot=await getDocs(getWorkersById).then(data=>setData(data.docs))
-                                                     .catch(e=>toast.error(e))
-
+    await getDocs(getWorkersById).then(data=>setData(data.docs)).catch(e=>toast.error(e))
 
 }
 
