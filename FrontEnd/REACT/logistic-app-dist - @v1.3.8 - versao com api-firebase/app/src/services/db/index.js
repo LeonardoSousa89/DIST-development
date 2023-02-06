@@ -22,15 +22,5 @@ const storage=getStorage(app)
 
 export { db, auth, storage }
 
-/**
- * 
- * falta estabelecer o relacionamento entre os documentos
- * e assim criar a associação, para inserção de workers,
- * a partir do ID de um usuário.
- * 
- * e obter os dados para exibição deste relacionamento
- * 
- */
-
 
 

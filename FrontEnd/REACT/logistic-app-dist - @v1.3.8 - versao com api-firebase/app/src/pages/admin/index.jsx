@@ -98,8 +98,8 @@ export default (props)=>{
 
   function listWorkersDisplay(){
     setDisplay(false)
-    setDisplayListWorkers(true)  
     setDisplayInsert(false)  
+    setDisplayListWorkers(true)  
   }
 
   function saveWorker(){
@@ -249,28 +249,34 @@ export default (props)=>{
                             <th id='emailthead' >email</th>
                           </tr>
                         </thead>
+
                           { 
-                            data.length != []? 
-                              (
-                                data.map(e=>{ 
-                                  return(
-                                    <tbody key={e.workerId}>
-                                      <tr>
-                                        <td id='workername'>{e.workerName.substring(0, 16)}</td>
-                                        <td id='workeraddress'>{e.workerAddress.substring(0, 16)}</td>
-                                        <td id='workeremail'>{e.workerEmail.substring(0, 24)}</td>
-                                      </tr>
-                                    </tbody>
-                                      )
-                                    })
-                                  ) : (
+                           data.length === 0?
+
+                              ( 
                                     <tbody>
-                                      <tr>
+                                       <tr>
                                         <td id='workername'>no records</td>
                                         <td id='workeraddress'>no records</td>
                                         <td id='workeremail'>no records</td>
                                       </tr>
                                     </tbody>
+                                  ) : (
+                                    data.map(e=>{
+
+                                        return(
+
+                                          <tbody key={e._document.data.value.mapValue.fields.userid.stringValue}>
+                                          <tr>
+                                            <td id='workername'>{e._document.data.value.mapValue.fields.workerName.stringValue}</td>
+                                            <td id='workeraddress'>{e._document.data.value.mapValue.fields.workerAddress.stringValue}</td>
+                                            <td id='workeremail'>{e._document.data.value.mapValue.fields.workerEmail.stringValue}</td>
+                                          </tr>
+                                        </tbody>
+
+                                        )
+
+                                    })
                             )
                           }
                       </table>
@@ -278,13 +284,13 @@ export default (props)=>{
                       {/* pagination controllers   */}
                       
                       {
-                        data.length<5 && page === 0? (
+                        data.length === 0 || page === 0? (
 
                           <div></div>
 
                         ):(
+                          
                           <div className='paginationBtn'>
-
                             {
                               page>0? (
                                 <img className='previews' src={preview} alt='preview' onClick={previewBtn} />
@@ -319,11 +325,13 @@ export default (props)=>{
         ) : (
           //Card operation workers display (default)
           <div className='border'>
-              <InternalHeader profilePhoto={image}
+             <div className='header'>
+                <InternalHeader profilePhoto={image}
                               profileName={userName} 
                               profileEmail={userEmail} />
+            </div>
 
-      
+            <div className='main'>
               <div className='cardContaner'>
 
                 <form className='formUpload' 
@@ -375,7 +383,7 @@ export default (props)=>{
                 </div>
                 
               </div>
-
+            </div>
           </div>
         )
       }

@@ -2,7 +2,7 @@ import { storage, db } from './db'
 
 import { toast } from 'react-toastify';
 
-import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore"; 
+import { collection, addDoc, doc, getDoc, getDocs, setDoc, where, query } from "firebase/firestore"; 
 
 import { createUserWithEmailAndPassword,
          signInWithEmailAndPassword, 
@@ -14,21 +14,31 @@ import { ref,
          getDownloadURL
        } from 'firebase/storage';
 
+/*
+to read:
+
+    https://firebase.google.com/docs/firestore/manage-data/add-data?hl=pt-br
+    https://firebase.google.com/docs/firestore/query-data/get-data?hl=pt-br
+    https://stackoverflow.com/questions/52865578/how-to-inner-join-in-firestore
+    https://medium.com/@thaisdalencar/mongodb-como-relacionar-dados-3e6e8f136590
+
+*/
+
 
 function saveInFirstore(uid, username, email, navigation){
 
-    let register=setDoc(doc(db, "Users", uid), {
+    setDoc(doc(db, "Users", uid), {
+
         userid: uid,
         username: username,
         email: email
-    });
-
-    register.then(_=>navigation()).catch(_=>_)
+        
+    }).then(_=>navigation())
 
 }
 
 export async function signUp(username, auth, email, password,  navigation){
-    await createUserWithEmailAndPassword(auth, email.trim(), password.trim())
+    await createUserWithEmailAndPassword(auth, email.trim(), password)
         .then(response=>{
 
             localStorage.setItem("Admin", JSON.stringify(response))
@@ -97,7 +107,7 @@ export async function createUserWithProvider(auth, provider, providerNavigation)
 
 
 export async function signInWithEmailAndPass(auth, email, password, navigation){
-    await signInWithEmailAndPassword(auth, email.trim(), password.trim())
+    await signInWithEmailAndPassword(auth, email.trim(), password)
         .then((response)=>{
 
             let msg="Welcome to admin page."
@@ -309,14 +319,15 @@ export async function insertWorker(workerName,
             workerPost,
             workerAddress,
             workerPhoneNumber,
-            workerAge
+            workerAge,
+            userid: userId
         }
-
-    let register=setDoc(doc(db, "workers", user_id), data);
     
-    await register.then(resp=>{
+    
+    let register=addDoc(collection(db, "Workers"), data).then(_=>_).catch(e=>console.error(e))   
 
-        console.log(resp)
+    
+    await register.then(_=>{
 
         formFieldCleanUp()
         listWorkersDisplay()
@@ -331,25 +342,14 @@ export async function getWorkersData(setData, page){
     let size=5
     let ID=localStorage.getItem("ID")
     let userId=JSON.parse(ID)
-    let URL=`${process.env.REACT_APP_API}/${userId}/administration?page=${page}&size=${size}`
-            
-    let config={method: 'GET'}
 
-    await fetch(URL, config)
-        .then(response=>{
-            if(response.status === 200){
-                response.json().then(response=>{
-                    let content=response.content
-                    setData(content)
-                })
-            }
-            if(response.status === 404){}
-            if(response.status === 500 || response.status === 503 || response.status === 504){
-                toast.error("There's an error with server")
-            }
-        })
-        .then(response=>response)
-        .catch(e=>toast.error(e))
+    const getWorkersById=query(collection(db, "Workers"), where("userid", "==", userId));
+
+    //falta paginar todas as chamadas
+    const querySnapshot=await getDocs(getWorkersById).then(data=>setData(data.docs))
+                                                     .catch(e=>toast.error(e))
+
+
 }
 
 
@@ -358,20 +358,20 @@ export async function pagination(setData, page){
     let size=5
     let ID=localStorage.getItem("ID")
     let userId=JSON.parse(ID)
-    let URL=`${process.env.REACT_APP_API}/${userId}/administration?page=${page}&size=${size}`
+    // let URL=`${process.env.REACT_APP_API}/${userId}/administration?page=${page}&size=${size}`
             
-    let config={method: 'GET'}
+    // let config={method: 'GET'}
 
-    await fetch(URL, config)
-        .then(response=>{
-            if(response.status === 200){
-                response.json().then(response=>{
-                    setData(response.content)
-                })
-            }
-        })
-        .then(response=>response)
-        .catch(e=>toast.error(e))
+    // await fetch(URL, config)
+    //     .then(response=>{
+    //         if(response.status === 200){
+    //             response.json().then(response=>{
+    //                 setData(response.content)
+    //             })
+    //         }
+    //     })
+    //     .then(response=>response)
+    //     .catch(e=>toast.error(e))
 }
 
 
@@ -380,25 +380,24 @@ export async function getWorkersLastPage(setLastPage, page){
     let size=5
     let ID=localStorage.getItem("ID")
     let userId=JSON.parse(ID)
-    let URL=`${process.env.REACT_APP_API}/${userId}/administration?page=${page}&size=${size}`
+    // let URL=`${process.env.REACT_APP_API}/${userId}/administration?page=${page}&size=${size}`
             
-    let config={method: 'GET'}
+    // let config={method: 'GET'}
 
-    await fetch(URL, config)
-        .then(response=>{
-            if(response.status === 200){
-               response.json().then(response=>{
-                    if(response.last === false){
-                        setLastPage(false)
-                    }else{
-                        setLastPage(true)
-                    }
-                })
-            }
-        })
-        .catch(e=>toast.error(e))
+    // await fetch(URL, config)
+    //     .then(response=>{
+    //         if(response.status === 200){
+    //            response.json().then(response=>{
+    //                 if(response.last === false){
+    //                     setLastPage(false)
+    //                 }else{
+    //                     setLastPage(true)
+    //                 }
+    //             })
+    //         }
+    //     })
+    //     .catch(e=>toast.error(e))
 }
-
 
 
 
